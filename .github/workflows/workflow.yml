@@ -1,0 +1,31 @@
+name: Build
+on: [push,pull_request]
+jobs:
+  build:
+    name: RSpec
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        ruby-version: [ruby-head]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby ${{ matrix.ruby-version }}
+      # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+      # change this to (see https://github.com/ruby/setup-ruby#versioning):
+      # uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundler install
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundler install
+      - name: Run tests
+        run: |
+          bundler exec rspec spec
