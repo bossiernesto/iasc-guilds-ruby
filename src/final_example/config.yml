@@ -1,0 +1,2 @@
+redis_pass: 'sOmE_sEcUrE_pAsS'
+workers: 4

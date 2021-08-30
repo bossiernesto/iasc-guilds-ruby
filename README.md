@@ -1,2 +1,5 @@
-# iasc-guilds-ruby
-Guild/Ractor for ruby 3
+# Guilds y Ractors
+
+`Cuidado: esta seccion usa codigo que esta actualmente en fase experimental, 
+
+
