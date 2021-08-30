@@ -58,7 +58,7 @@ DEPENDENCIES
   activesupport (>= 5.2.4.3)
   colorize
   pry
-  puma (>= 5)
+  puma (>= 5.3.1)
   redis
   rspec
   sinatra (~> 2.0.2)

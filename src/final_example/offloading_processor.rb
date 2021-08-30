@@ -33,7 +33,7 @@ class Offloader
       puts "\e[0;32;49mStarting loop for Ractor a.k.a Worker #{worker_id}\e[0m"
       Ractor.new(worker_id, ractor_pipeline) do |worker_id, pipe|
         loop do
-          puts "\e[0;32;49mStarting new loop run for Ractor #{worker_id}\e[0m"
+          puts "\e[0;32;49mStarting new loop cycle for Ractor #{worker_id}\e[0m"
           incomming_message = pipe.take
           puts "\e[0;34;49m[Debug:Ractor##{worker_id}] - message: ##{incomming_message}\e[0m"
           raise unless incomming_message.is_a?(Hash)
@@ -57,7 +57,7 @@ class Offloader
   private
 
   def get_message
-    RedisWrapper.conn.blpop(['queue:ractor-example'], 1)
+    RedisWrapper.conn.blpop([Config.new.config[:queue]], 1)
   end
 
   def get_ractor_number(r)
@@ -73,6 +73,5 @@ class Offloader
       puts "\e[0;32;49mRactor #{worker_id} has asnwered for fib(#{data}): #{result}\e[0m"
     end
   end
-
 end
 Offloader.new

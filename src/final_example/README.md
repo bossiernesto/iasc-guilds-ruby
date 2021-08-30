@@ -31,7 +31,7 @@ en el ractor correspondiente.
 Si hacemos un request del tipo
 
 ```
-GET http://localhost:9292/async_fibonacci/47
+GET http://localhost:5000/async_fibonacci/47
 ```
 
 vamos a ver en el htop, algo como lo siguiente:

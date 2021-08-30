@@ -1,11 +1,12 @@
 require 'json'
+require_relative 'config'
 require_relative 'redis_wrapper'
 
 module RactorWorker
   module ClassMethods
     def perform_async(data)
       RedisWrapper.conn.rpush(
-        'queue:ractor-example', { 'klass' => self.name, 'data' => data }.to_json
+        Config.new.config[:queue], { 'klass' => self.name, 'data' => data }.to_json
       )
       :ok
     end
