@@ -12,3 +12,19 @@ def receive_only_strings_ractor
     msg
   end
 end
+
+
+def closed_ractor
+  r = Ractor.new do
+  end
+
+  r.take # wait terminate
+
+  begin
+    r.send(1)
+  rescue Ractor::ClosedError
+    'ok'
+  else
+    'ng'
+  end
+end
