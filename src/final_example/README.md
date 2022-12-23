@@ -14,7 +14,11 @@ Solo hay que hacer `bundle install` para instalar las dependencias que estan pre
 docker-compose up
 ```
 
-Una vez que esta levantado, podemos levantar nuestro offloader que sera el que procese asincronicamente workers, utilizando una cantidad de n workers, que vamos a especificar en el archivo de configuracion `config.yml`. Cada worker, ejecutara un loop dentro de un `Ractor`, y el 
+Una vez que esta levantado, podemos levantar nuestro offloader que sera el que procese asincronicamente workers, utilizando una cantidad de n workers, que vamos a especificar en el archivo de configuracion `config.yml`. Cada worker, ejecutara un loop dentro de un `Ractor`, y se hara un dispatch contra cada fibonacci worker que sera un Ractor independiente y que devolvera el resultado del procesamiento de cada n. 
+
+```ruby
+ruby offloading_processor.rb
+```
 
 
 Una vez que estamos listos, podemos correr Puma con un solo worker:

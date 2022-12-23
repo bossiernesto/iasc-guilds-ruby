@@ -15,8 +15,8 @@ RN.times{|i|
   pipe << i
 }
 
-# TODO: Current Ractor.select() has the same issue of select(2), so this interface should be refined.
-# TODO: select syntax of go-language uses round-robin technique to make fair scheduling. Now Ractor.select() doesn't use it.
+# TODO: select syntax of go-language uses round-robin technique to make fair scheduling.
+# Now Ractor.select() doesn't use it.
 pp RN.times.map{
   r, n = Ractor.select(*rs)
   rs.delete r

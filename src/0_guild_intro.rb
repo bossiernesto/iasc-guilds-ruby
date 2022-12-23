@@ -2,7 +2,14 @@
 
 def create_and_run_ractor(a)
   Ractor.new a do |arg|
+    sleep(5)
     arg # return arg
+  end
+end
+
+def ractor_example_2
+  Ractor.new do
+    Ractor.receive
   end
 end
 
@@ -22,7 +29,8 @@ def closed_ractor
 
   begin
     r.send(1)
-  rescue Ractor::ClosedError
+  rescue Ractor::ClosedError => e
+    puts e
     'ok'
   else
     'ng'

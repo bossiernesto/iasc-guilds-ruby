@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fibo calculator</title>
+    <style type="text/css">
+        body {
+            width: 30%;
+            background: white;
+        }
+        h1 {
+            color: #555;
+            background: white;
+            border-bottom: 1px solid #555;
+        }
+        p {
+            color: #121212;
+            font: normal 14px/16px Helvetica;
+        }
+        input[type="text"] {
+            padding: 5px;
+            font: normal 14px/16px Helvetica, sans-serif;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Fibonacci Calculator</h1>
+<p>Small Async fibonacci calculator.</p>
+<form action="/async_fibonacci" method="GET">
+    <p><label>Value to Calculate</label> <input type="text" name="n" /></p>
+    <input type="submit" value="Submit!" /></p>
+</form>
+
+</body>
+</html>

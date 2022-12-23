@@ -24,8 +24,16 @@ helpers do
   end
 end
 
+get '/' do
+  send_file 'fibo_calculator.html'
+end
+
 get '/fibonacci/:n' do
   {result: fib(params[:n].to_i)}.to_json
+end
+
+get '/async_fibonacci' do
+  {result: calculate_fib(40)}.to_json
 end
 
 get '/async_fibonacci/:n' do
